@@ -1,0 +1,12 @@
+<%= form_with url: "/", method: :get do |form| %>
+  <%= form.label :user_id, "User id:" %>
+  <%= form.text_field :user_id %>
+  <%= form.submit "photo" %><br><br>
+<% end %>
+
+<%= flash[:alert]%> <br><br>
+<% if @photos %>
+  <% @photos.each do |photo| %>
+    <%= image_tag Flickr.url_n(photo)  %>
+  <% end %>
+<% end %>
